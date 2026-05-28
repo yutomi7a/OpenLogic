@@ -18,7 +18,7 @@ We define the following semantic notions:
   some~$\pAssign{v}$, $\pSat{v}{!A}$; it is
   \emph{unsatisfiable} if for no $\pAssign{v}$, $\pSat{v}{!A}$;
 \item !!^a{formula}~$!A$ is a \emph{tautology} if $\pSat{v}{!A}$ for
-  all !!{valuation}s~$v$;
+  all !!{valuation}s~$\pAssign{v}$;
 \item !!^a{formula}~$!A$ is \emph{contingent} if it is satisfiable but
   not a tautology;
 \item If $\Gamma$ is a set of !!{formula}s, $\Gamma \Entails !A$ (``$\Gamma$
@@ -51,7 +51,7 @@ We define the following semantic notions:
   $\Gamma \Entails !B$;
 \item If $\Gamma$ is satisfiable then every finite subset of $\Gamma$
   is also satisfiable; 
-\item \ollabel{def:Monotony} Monotony: if $\Gamma \subseteq \Delta$
+\item \ollabel{def:monotonicity} Monotonicity: if $\Gamma \subseteq \Delta$
   and $\Gamma \Entails !A$ then also $\Delta \Entails !A$;
 \item \ollabel{def:Cut} Transitivity: if $\Gamma \Entails !A$ and
   $\Delta \cup \{ !A\} \Entails !B$ then $\Gamma \cup \Delta \Entails

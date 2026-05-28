@@ -30,9 +30,10 @@ number indicating the type of the last inference.
     is $\tuple{0, \Gn{!A}, n}$. The number~$n$ is~$0$ if it is an
     !!{undischarged} assumption, and the numerical label otherwise.
   \item 
-    If $\delta$ ends in an inference with one, two, or three premises,
+    If $\delta$ ends in an inference with zero, one, two, or three premises,
     then $\Gn{\delta}$ is
     \begin{align*}
+      & \tuple{0, \Gn{!A}, n, k}, \\
       & \tuple{1, \Gn{\delta_1}, \Gn{!A}, n, k}, \\
       & \tuple{2, \Gn{\delta_1}, \Gn{\delta_2}, \Gn{!A}, n, k}, \text{ or}\\
       & \tuple{3, \Gn{\delta_1}, \Gn{\delta_2}, \Gn{\delta_3}, \Gn{!A}, n,
@@ -121,7 +122,7 @@ recursive relation of the G\"odel numbers of $\delta$ and~$!A$.
     !!{derivation}s is a special case of the coding of trees introduced in
     \olref[cmp][rec][tre]{sec}, so the primitive recursive function
     $\fn{SubtreeSeq}(d)$ gives a sequence of G\"odel numbers of all
-    sub-!!{derivation}s of~$d$ (of length a most $d$). So we can
+    sub-!!{derivation}s of~$d$ (of length at most $d$). So we can
     define
     \[
     \fn{Assum}(x, d, n) \defiff \bexists{i<d}{(\fn{SubtreeSeq}(d))_i =
@@ -166,23 +167,24 @@ recursive relation of the G\"odel numbers of $\delta$ and~$!A$.
   \end{prooftree}
   Then the G\"odel number~$d$ of~$\delta$ is $\tuple{2, d_1, d_2,
     \Gn{(!A \land !B)}, 0, k}$ where $\fn{EndFmla}(d_1) = \Gn{!A}$,
-  $\fn{EndFmla}(d_2) = \Gn{B}$, $n=0$, and $k=1$. So we can define
+  $\fn{EndFmla}(d_2) = \Gn{!B}$, $n=0$, and $k=1$. So we can define
   $\fn{FollowsBy}_{\Intro\land}(d)$ as
   \begin{multline*}
     (d)_0 = 2 \land \fn{DischargeLabel}(d) = 0 \land \fn{LastRule}(d) = 1 \land {}\\
-    \fn{EndFmla}(d) = \Gn{(} \concat \fn{EndFmla}((d)_1) \concat \Gn{\land}
+    \fn{EndFmla}(d) = {}\\
+    \Gn{(} \concat \fn{EndFmla}((d)_1) \concat \Gn{\land}
     \concat \fn{EndFmla}((d)_2) \concat \Gn{)}.
   \end{multline*}
 
-  Another simple example if the $\Intro\eq$ rule. Here the premise is
-  an empty !!{derivation}, i.e., $(d)_1 = 0$, and no discharge label,
+  Another simple example is the $\Intro\eq$ rule. This has no premises,
+  so $(d)_0 = 0$, like assumptions. It also has no discharge label,
   i.e., $n=0$.  However, $!A$ must be of the form $\eq[t][t]$, for a
   closed term~$t$. Here, a primitive recursive definition is
   \begin{multline*}
-    (d)_0 = 1 \land (d)_1 = 0 \land \fn{DischargeLabel}(d) = 0 \land {}\\
+    (d)_0 = 0 \land \fn{DischargeLabel}(d) = 0 \land {}\\
     \bexists{t<d}{(\fn{ClTerm}(t) \land 
-      \fn{EndFmla}(d) = 
-      \Gn{{\eq}(} \concat t \concat \Gn{,} \concat t \concat \Gn{)})}
+      \fn{EndFmla}(d) = {}\\
+      \Gn{{\eq}(} \concat t \concat \Gn{,} \concat t \concat \Gn{)})}.
   \end{multline*}
 
   For a more complicated example, $\fn{FollowsBy}_{\Intro{\lif}}(d)$
@@ -287,7 +289,7 @@ recursive relation of the G\"odel numbers of $\delta$ and~$!A$.
   of~$\delta$. Any sequence of G\"odel numbers of sub-!!{derivation}s
   of~$\delta$ is a subsequence of it. Being a subsequence of is a
   primitive recursive relation: $\fn{Subseq}(s, s')$ holds iff
-  $\bforall{i<\len{s}}{\lexists[j<\len{s'}][(s)_i = (s)_j]}$. Being an
+  $\bforall{i<\len{s}}{\lexists[j<\len{s'}][(s)_i = (s')_j]}$. Being an
   immediate sub-!!{derivation} is as well: $\fn{Subderiv}(d, d')$ iff
   $\bexists{j<(d')_0}{d = (d')_j}$. So we can define
   $\fn{OpenAssum}(z, d)$ by
@@ -295,12 +297,13 @@ recursive relation of the G\"odel numbers of $\delta$ and~$!A$.
     \bexists{s<\fn{SubtreeSeq}(d)}{(\fn{Subseq}(s, \fn{SubtreeSeq}(d))
       \land (s)_0 = d \land {}} \\
     \bexists{n<d}{((s)_{\len{s} \tsub 1} = \tuple{0, z, n} \land {}}\\
-      \bforall{i<(\len{s} \tsub 1)}{(\fn{Subderiv}((s)_{i+1}, (s)_i)] \land {}}\\
-      \fn{DischargeLabel}((s)_{i+1}) \neq n))).
+      \bforall{i<(\len{s} \tsub 1)}{(\fn{Subderiv}((s)_{i+1}, (s)_i) \land {}}\\
+      \fn{DischargeLabel}((s)_i) \neq n))).
   \end{multline*}
 \end{proof}
 
 \begin{prop}
+  \ollabel{prop:prf-prim-rec}
   Suppose $\Gamma$ is a primitive recursive set of !!{sentence}s.
   Then the relation $\Prf[\Gamma](x, y)$ expressing ``$x$ is the code
   of !!a{derivation}~$\delta$ of $!A$ from !!{undischarged}
@@ -317,7 +320,7 @@ recursive relation of the G\"odel numbers of $\delta$ and~$!A$.
   primitive recursive.
 
   By \olref{prop:deriv}, the property $\fn{Deriv}(x)$ which holds iff
-  $x$ is the G\"odel number of a correct derivation~$\delta$ in
+  $x$ is the G\"odel number of a correct !!{derivation}~$\delta$ in
   natural deduction is primitive recursive. Thus we can define
   $\Prf[\Gamma](x, y)$ by
   \begin{align*}

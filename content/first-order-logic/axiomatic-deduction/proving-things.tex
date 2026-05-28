@@ -27,12 +27,12 @@ strategy would be to use \olref[prp]{ax:lor3} with $!A$ being $\lnot
 Why? Two applications of MP yield the last part, which is what we
 want.  And we easily see that $\lnot !D \lif (!D \lif !E)$ is an
 instance of \olref[prp]{ax:lnot2}, and $!E \lif (!D \lif !E)$ is an
-instance of \olref[prp]{ax:lif1}. So our derivation is:
+instance of \olref[prp]{ax:lif1}. So our !!{derivation} is:
 \begin{derivation}
   1. &  $\lnot !D \lif (!D \lif !E)$ & \olref[prp]{ax:lnot2} \\
   2. & $(\lnot !D \lif (!D \lif !E)) \lif {}$\\
   &\qquad $((!E \lif (!D \lif !E)) \lif ((\lnot !D \lor !E) \lif (!D \lif !E)))$ & \olref[prp]{ax:lor3}\\
-  3. & $((!E \lif (!D \lif !E)) \lif ((\lnot !D \lor !E) \lif (!D \lif !E))$ & 1, 2, \MP\\
+  3. & $(!E \lif (!D \lif !E)) \lif ((\lnot !D \lor !E) \lif (!D \lif !E))$ & 1, 2, \MP\\
   4. & $!E \lif (!D \lif !E)$ & \olref[prp]{ax:lif1}\\
   5. & $(\lnot !D \lor !E) \lif (!D \lif !E)$ & 3, 4, \MP
 \end{derivation}
@@ -68,7 +68,7 @@ should we pick~$!B$ so that both $!A \lif (!B \lif !C)$ and $!A \lif
 also !!{derivable}? Well, the first of these is already an instance of
 \olref[prp]{ax:lif1}, whatever we decide $!B$ to be. And $!D \lif !B$ would
 be another instance of \olref[prp]{ax:lif1} if $!B$ were $(!D \lif !D)$.
-So, our derivation is:
+So, our !!{derivation} is:
 \begin{derivation}
   1. & $!D \lif ((!D \lif !D) \lif !D)$ & \olref[prp]{ax:lif1}\\
   2. & $(!D \lif ((!D \lif !D) \lif !D)) \lif {}$\\
@@ -80,7 +80,7 @@ So, our derivation is:
 \end{ex}
 
 \begin{ex}\ollabel{ex:chain}
-Sometimes we want to show that there is a derivation of some
+Sometimes we want to show that there is !!a{derivation} of some
 !!{formula} from some other !!{formula}s~$\Gamma$. For instance, let's
 show that we can !!{derive} $!A \lif !C$ from $\Gamma = \{!A \lif !B,
 !B \lif !C\}$.
@@ -111,10 +111,10 @@ The lines labelled ``\Hyp'' (for ``hypothesis'') indicate that the
   lines 3--7 of the !!{derivation} in the preceding example. This is
   !!a{derivation} of $!A \lif !C$---which is the last line of the new
   !!{derivation}---from~$\Gamma$. Note that the justifications of
-  lines 4 and~7 remain valid if the reference to line number~2 is
+  lines 4 and~7 remain valid if the reference to line number~1 is
   replaced by reference to the last line of the !!{derivation} of~$!A
-  \lif !B$, and reference to line number~1 by reference to the last
-  line of the !!{derivation} of~$B \lif !C$.
+  \lif !B$, and reference to line number~2 by reference to the last
+  line of the !!{derivation} of~$!B \lif !C$.
 \end{proof}
 
 \begin{prob} 

@@ -11,7 +11,7 @@
 \olsection{Parallel $\beta$-reduction}
 
 We introduce the notion of \emph{parallel $\beta$-reduction}, and
-prove the it has the Church-Rosser property.
+prove the it has the Church--Rosser property.
 
 \begin{defn}[parallel $\beta$-reduction, $\bredpar$] \ollabel{defn:bredpar}
   Parallel reduction ($\bredpar$) of terms is inductively defined as follows:
@@ -77,7 +77,7 @@ of $(\lambd[f][fx])(\lambd[y][y])$ is $(\lambd[y][y])x$, not itself.
 \end{lem}
 
 \begin{proof}
-  By induction on the derivation of $M \bredpar M'$.
+  By induction on the !!{derivation} of $M \bredpar M'$.
   \begin{enumerate}
     \item The last step is \olref{defn:bredpar1}: Exercise.
     \item The last step is \olref{defn:bredpar2}: Then $M$ is 
@@ -107,7 +107,7 @@ of $(\lambd[f][fx])(\lambd[y][y])$ is $(\lambd[y][y])x$, not itself.
   If $M \bredpar M'$ then $M' \bredpar \bcd{M}$.
 \end{lem}
 \begin{proof}
-  By induction on the derivation of $M \bredpar M'$.
+  By induction on the !!{derivation} of $M \bredpar M'$.
   \begin{enumerate}
     \item The last rule is \olref{defn:bredpar1}: Exercise.
     \item The last rule is \olref{defn:bredpar2}: $M$ is 
@@ -145,7 +145,7 @@ of $(\lambd[f][fx])(\lambd[y][y])$ is $(\lambd[y][y])x$, not itself.
 \end{prob}
 
 \begin{thm}\ollabel{thm:cr}
-  $\bredpar$ has the Church-Rosser property.
+  $\bredpar$ has the Church--Rosser property.
 \end{thm}
 
 \begin{proof}

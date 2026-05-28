@@ -27,17 +27,17 @@ representable in~$\Th{Q}$.
   The ``if'' part is
 \olref[int]{defn:representable-fn}\olref[int]{defn:rep:a}. The ``only
 if'' part is seen as follows: Suppose $\Th{Q} \Proves !A_f(\num{n_0},
-\dots, \num{n_k}, \num{m})$ but $m \neq f(n_0, \dots, n_k)$. Let $k =
+\dots, \num{n_k}, \num{m})$ but $m \neq f(n_0, \dots, n_k)$. Let $l =
 f(n_0, \dots, n_k)$. By
 \olref[int]{defn:representable-fn}\olref[int]{defn:rep:a}, $\Th{Q}
-\Proves !A_f(\num{n_0}, \dots, \num{n_k}, \num{k})$. By
+\Proves !A_f(\num{n_0}, \dots, \num{n_k}, \num{l})$. By
 \olref[int]{defn:representable-fn}\olref[int]{defn:rep:b},
-$\lforall[y][(!A_f(\num{n_0}, \dots, \num{n_k}, y) \lif \num{k} =
+$\lforall[y][(!A_f(\num{n_0}, \dots, \num{n_k}, y) \lif \num{l} =
 y)]$. Using logic and the assumption that $\Th{Q} \Proves
 !A_f(\num{n_0}, \dots, \num{n_k}, \num{m})$, we get that $\Th{Q}
-\Proves \eq[\num{k}][\num{m}]$. On the other hand, by
+\Proves \eq[\num{l}][\num{m}]$. On the other hand, by
 \olref[bre]{lem:q-proves-neq}, $\Th{Q} \Proves
-\eq/[\num{k}][\num{m}]$. So $\Th{Q}$ is inconsistent. But that is
+\eq/[\num{l}][\num{m}]$. So $\Th{Q}$ is inconsistent. But that is
 impossible, since $\Th{Q}$ is satisfied by the standard model (see
 \olref[int][def]{def:standard-model}), $\Sat{N}{\Th{Q}}$, and
 satisfiable theories are always consistent by the Soundness Theorem
@@ -88,17 +88,17 @@ This looks complicated, but it's just the function $A(n_0, \dots, n_k,
 m) = \Gn{!A_f(\num{n_0}, \dots, \num{n_k}, \num{m})}$.
 
 Now, consider the relation~$R(n_0, \dots, n_k, s)$ which holds if
-$(s)_0$ is the G\"odel number of a derivation from~$\Th{Q}$ of
+$(s)_0$ is the G\"odel number of !!a{derivation} from~$\Th{Q}$ of
 $!A_f(\num{n_0}, \dots, \num{n_k}, \num{(s)_1})$:
 \[
 R(n_0, \dots, n_k, s) \quad\text{iff}\quad \Prf[\Th{Q}]((s)_0, A(n_0,
 \dots, n_k, (s)_1))
 \]
-If we can find an~$s$ such that $R(n_0, \dots, n_k, s)$ hold, we have
-found a pair of numbers---$(s)_0$ and~$(s_1)$---such that $(s)_0$ is
+If we can find an~$s$ such that $R(n_0, \dots, n_k, s)$ holds, we have
+found a pair of numbers---$(s)_0$ and~$(s)_1$---such that $(s)_0$ is
 the G\"odel number of !!a{derivation} of~$A_f(\num{n_0}, \dots,
-\num{n_k}, (s)_1)$. So looking for $s$ is like looking for the pair
-$d$ and $m$ in the informal proof.  And a computable function that
+\num{n_k}, (s)_1)$. So looking for~$s$ is like looking for the pair
+$d$ and $m$ in the informal proof. And a computable function that
 ``looks for'' such an $s$ can be defined by regular minimization.
 Note that $R$ is regular: for every $n_0$, \dots, $n_k$, there is
 !!a{derivation}~$\delta$ of $\Th{Q} \Proves !A_f(\num{n_0}, \dots,

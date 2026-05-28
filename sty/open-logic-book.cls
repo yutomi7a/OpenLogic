@@ -116,6 +116,10 @@
     \def\captionnamefont{\small\sffamily\color{OLPcolor}}
     \def\captiontitlefont{\small\itfamily}
 
+    % change cref references to appendix after \appendix 
+    \crefname{appendix}{appendix}{appendices}
+    \apptocmd{\appendix}{\crefalias{chapter}{appendix}}{}{}
+  
     \def\figurename{Fig.}
 
     % Make justification a bit sloppy to avoid overfull lines
@@ -184,8 +188,8 @@
     \hypersetup{
       pdfdisplaydoctitle,
       allcolors=OLPdkcolor,
-  %    pdftitle={\OLPbooktitle. \OLPbooksubtitle{} (\OLPshortbookversion)},
-  %    pdfauthor = {\OLPauthor, Open Logic Project}
+      pdftitle={\OLPbooktitle. \OLPbooksubtitle{} (\OLPshortbookversion)},
+      pdfauthor = {\OLPauthor, Open Logic Project}
     }
     \copypagestyle{OLPpage}{headings}
 
@@ -529,7 +533,9 @@ Tim Button, \emph{University College London}
 
 Walter Dean, \emph{University of Warwick}
 
-Gillian Russell, \emph{Dianoia Institute of Philosophy}
+Benedict Eastaugh, \emph{University of Warwick}
+
+Gillian Russell, \emph{Australian National University}
 
 Nicole Wyatt, \emph{University of Calgary}
 
@@ -637,4 +643,3 @@ from \emph{Open Logic Text} revision
 \currentpdfbookmark{Table of Contents}{name}
 \tableofcontents*
 }
-
