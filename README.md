@@ -11,11 +11,10 @@ rearranged and remixed. You can produce custom textbooks from it, so
 they take the aim of the course and the preferences of the instructor
 into account. It is written in LaTeX.
 
-オープンロジックプロジェクトは、オープンソースでオープンアクセスの、発展的な論理学に関する教材資料集です。
-主に哲学者を対象としたものの、計算機科学者や数学者にも適しています。
-本書は再編成やリミックスが可能で、授業のねらいや講師の好みを勘案した、独自の教科書を作れます。
-LaTeXで書かれています。
-
+Open Logic Projectは、主として哲学者を対象としながらも、コンピュータ科学者や数学者にも適した、高度な論理学に関するオープンソースかつオープンアクセスの教材コレクションです。
+本文は再構成や再編集が可能です。
+なので、授業の目的や担当教員の好みを考慮したカスタム教科書を作成できます。
+このプロジェクトはLaTeXで記述されています。
 
 For more information, see the <a
 href="https://openlogicproject.org/">project website</a> and <a
